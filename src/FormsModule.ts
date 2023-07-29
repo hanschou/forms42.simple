@@ -1,9 +1,10 @@
-import { Countries } from './forms/countries/Countries';
-import { FormsModule as FormsCoreModule, DatabaseConnection as Connection, FormsPathMapping, FormEvent, EventType } from 'forms42core';
+import { DataLoader } from './DataLoader';
+import { MasterDetail } from './forms/countries/MasterDetail';
+import { FormsModule as FormsCoreModule, FormsPathMapping } from 'forms42core';
 
 @FormsPathMapping(
 [
-   {class: Countries, path: "/forms/countries"}
+   {class: MasterDetail, path: "/forms/masterdetail"}
 ]
 )
 
@@ -12,12 +13,12 @@ export class FormsModule extends FormsCoreModule
    constructor()
    {
       super();
-      this.parse();
+      this.setup();
    }
 
-   public async test(event:FormEvent) : Promise<boolean>
+   private async setup()
    {
-      console.log(EventType[event.type]+" "+event.block+"."+event.field);
-      return(true);
+      await DataLoader.load();
+      this.parse(document.body);
    }
 }
