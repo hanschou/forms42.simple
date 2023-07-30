@@ -7,13 +7,25 @@
 				<table>
 					<tr>
 						<th></th>
-						<th>Id</th>
-						<th>Name</th>
-					</tr>
-					<tr class="row" foreach="row in 1..6">
-						<td class="indicator"><span from="Departments" row="$row" type="row-indicator"></span></td>
-						<td><input name="department_id" 		from="Departments" row="$row" size="6"  integer></td>
-						<td><input name="department_name" 	from="Departments" row="$row" size="20" initcap></td>
+						<th>
+							<label for="id0" tabindex="0" draggable="true"
+								onclick="this.sort('departments','department_id')"
+								ondragstart="this.startFieldDragging()">
+								id
+							</label>
+						</th>
+						<th>
+							<label for="name0" tabindex="1" draggable="true"
+								onclick="this.sort('departments','department_name')"
+								ondragstart="this.startFieldDragging()">
+								Name
+							</label>
+						</th>
+						</tr>
+					<tr class="row" foreach="row in 1..3">
+						<td class="indicator"><span from="departments" row="$row" type="row-indicator"></span></td>
+						<td><input id="id$row" name="department_id" 		from="departments" row="$row" size="6"  integer required></td>
+						<td><input id="name$row" name="department_name" 	from="departments" row="$row" size="20" initcap required></td>
 					</tr>
 				</table>
 			</div>
@@ -28,40 +40,40 @@
 					<th></th>
 					<th>
 						<label for="fn0" tabindex="0" draggable="true"
-							onclick="this.sort('emp','first_name')"
+							onclick="this.sort('employees','first_name')"
 							ondragstart="this.startFieldDragging()">
 							First Name
 						</label>
 					</th>
 					<th>
 						<label for="ln0" tabindex="1" draggable="true"
-							onclick="this.sort('emp','last_name')"
+							onclick="this.sort('employees','last_name')"
 							ondragstart="this.startFieldDragging()">
 							Last Name
 						</label>
 					</th>
 					<th>
 						<label for="em0" tabindex="2" draggable="true"
-							onclick="this.sort('emp','email')"
+							onclick="this.sort('employees','email')"
 							ondragstart="this.startFieldDragging()">
 							Email
 						</label>
 					</th>
 					<th>
 						<label for="ph0" tabindex="3" draggable="true"
-							onclick="this.sort('emp','phone_number')"
+							onclick="this.sort('employees','phone_number')"
 							ondragstart="this.startFieldDragging()">
 							Phone
 						</label>
 					</th>
 				</tr>
 				<tr class="row" foreach="row in 0..4">
-					<td class="indicator"><span from="Employees" row="$row" type="row-indicator"></span></td>
+					<td class="indicator"><span from="employees" row="$row" type="row-indicator"></span></td>
 
-					<td><input id="fn$row" 	name="first_name" 	from="Employees" row="$row" size="10" initcap required></td>
-					<td><input id="ln$row" 	name="last_name" 		from="Employees" row="$row" size="10" initcap required></td>
-					<td><input id="em$row" 	name="email" 			from="Employees" row="$row" size="32" required></td>
-					<td><input id="ph$row" 	name="phone_number" 	from="Employees" row="$row" size="14" required></td>
+					<td><input id="fn$row" 	name="first_name" 	from="employees" row="$row" size="10" initcap required></td>
+					<td><input id="ln$row" 	name="last_name" 		from="employees" row="$row" size="10" initcap required></td>
+					<td><input id="em$row" 	name="email" 			from="employees" row="$row" size="32" required></td>
+					<td><input id="ph$row" 	name="phone_number" 	from="employees" row="$row" size="14" required></td>
 				</tr>
 				</table>
 			</div>

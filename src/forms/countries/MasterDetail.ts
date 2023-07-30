@@ -1,6 +1,7 @@
-import { Block, Form, Key, datasource } from "forms42core";
-import { Departments } from "../../datasources/Departments";
 import { Employees } from "../../datasources/Employees";
+import { Departments } from "../../datasources/Departments";
+import { Block, Form, Key, datasource } from "forms42core";
+
 
 @datasource("employees",Employees)
 @datasource("departments",Departments)
@@ -19,20 +20,9 @@ export class MasterDetail extends Form
 
 	public async sort(block:string, column:string) : Promise<boolean>
 	{
-		if (block.toLowerCase() == "emp")
-		{
-			let block:Block = this.getBlock("employees");
-			block.datasource.sorting = column;
-			await block.reQuery();
-			return(true);
-		}
-
-		if (block.toLowerCase() == "dept")
-		{
-			let block:Block = this.getBlock("departments");
-			block.datasource.sorting = column;
-			await block.reQuery();
-			return(true);
-		}
+		let blk:Block = this.getBlock(block);
+		blk.datasource.sorting = column;
+		await blk.reQuery();
+		return(true);
 	}
 }
