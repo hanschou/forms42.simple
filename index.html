@@ -22,7 +22,7 @@
 							</label>
 						</th>
 						</tr>
-					<tr class="row" foreach="row in 1..3">
+					<tr class="row" foreach="row in 0..2">
 						<td class="indicator"><span from="departments" row="$row" type="row-indicator"></span></td>
 						<td><input id="id$row" name="department_id" 		from="departments" row="$row" size="6"  integer required></td>
 						<td><input id="name$row" name="department_name" 	from="departments" row="$row" size="20" initcap required></td>

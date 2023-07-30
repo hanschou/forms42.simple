@@ -9,14 +9,15 @@ export class DataLoader
    {
       let conn:Connection = new Connection();
 
-		DataLoader.loadEmpData(conn);
-		DataLoader.loadDeptData(conn);
+		await DataLoader.loadEmpData(conn);
+		await DataLoader.loadDeptData(conn);
    }
 
    private static async loadDeptData(conn:Connection) : Promise<void>
    {
       let response:any = await conn.get("/data/Departments.json");
 		DataLoader.departments = response.table;
+      console.log("loaded "+response.table.length+" departments");
    }
 
    private static async loadEmpData(conn:Connection) : Promise<void>
@@ -27,5 +28,6 @@ export class DataLoader
 			response.table[i][5] = dates.parse(response.table[i][5],"YYYY-MM-DD");
 
 		DataLoader.employees = response.table;
+      console.log("loaded "+response.table.length+" employees");
    }
 }

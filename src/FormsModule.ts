@@ -1,6 +1,6 @@
 import { DataLoader } from './DataLoader';
 import { MasterDetail } from './forms/countries/MasterDetail';
-import { FormsModule as FormsCoreModule, FormsPathMapping } from 'forms42core';
+import { Form, FormsModule as FormsCoreModule, FormsPathMapping } from 'forms42core';
 
 @FormsPathMapping(
 [
@@ -19,6 +19,18 @@ export class FormsModule extends FormsCoreModule
    private async setup()
    {
       await DataLoader.load();
-      this.parse(document.body);
+
+      let parse:boolean = true;
+
+      if (parse)
+      {
+         this.parse(document.body);
+      }
+      else
+      {
+         let view:HTMLElement = document.querySelector('form');
+         let form:Form = await this.createform(MasterDetail,view);
+         form.attach(document.body);
+      }
    }
 }
