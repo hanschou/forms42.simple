@@ -25,7 +25,7 @@ import { FormsModule as FormsCoreModule, FormsPathMapping } from 'forms42core';
 
 @FormsPathMapping(
 [
-   {class: MasterDetail, path: "/forms/masterdetail"}
+   {class: MasterDetail, path: "masterdetail"}
 ]
 )
 
