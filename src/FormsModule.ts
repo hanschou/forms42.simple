@@ -54,5 +54,7 @@ export class FormsModule extends FormsCoreModule
          let view:HTMLElement = document.querySelector('form');
          await this.createform(MasterDetail,view);
       }
+
+      this.message("How does it look mate","Message");
    }
 }
