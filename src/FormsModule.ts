@@ -21,7 +21,7 @@
 
 import { DataLoader } from './DataLoader';
 import { MasterDetail } from './forms/countries/MasterDetail';
-import { Form, FormsModule as FormsCoreModule, FormsPathMapping } from 'forms42core';
+import { FormsModule as FormsCoreModule, FormsPathMapping } from 'forms42core';
 
 @FormsPathMapping(
 [
@@ -45,13 +45,14 @@ export class FormsModule extends FormsCoreModule
 
       if (parse)
       {
+			// Parse all and Use "implementation"
          this.parse(document.body);
       }
       else
       {
+			// Find each form and only parse those parts
          let view:HTMLElement = document.querySelector('form');
-         let form:Form = await this.createform(MasterDetail,view);
-         form.attach(document.body);
+         await this.createform(MasterDetail,view);
       }
    }
 }
