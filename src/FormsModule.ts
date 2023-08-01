@@ -23,11 +23,10 @@ import { DataLoader } from './DataLoader';
 import { MasterDetail } from './forms/countries/MasterDetail';
 import { FormsModule as FormsCoreModule, FormsPathMapping } from 'forms42core';
 
-@FormsPathMapping(
-[
+@FormsPathMapping
+([
    {class: MasterDetail, path: "masterdetail"}
-]
-)
+])
 
 export class FormsModule extends FormsCoreModule
 {

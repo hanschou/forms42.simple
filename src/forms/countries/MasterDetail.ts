@@ -43,10 +43,9 @@ export class MasterDetail extends Form
 
 	public async sort(block:string, column:string) : Promise<boolean>
 	{
-		this.message("Sort the mother fucker")
 		let blk:Block = this.getBlock(block);
 
-		if (!blk.empty)
+		if (!blk.empty())
 		{
 			blk.datasource.sorting = column;
 			await blk.reQuery();
