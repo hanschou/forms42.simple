@@ -19,7 +19,6 @@
   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-import { Lov } from "./Lov";
 import { Employees } from "../../datasources/Employees";
 import { Departments } from "../../datasources/Departments";
 import { Block, Form, Key, datasource } from "forms42core";
@@ -38,7 +37,6 @@ export class MasterDetail extends Form
 		let master:Key = new Key("departments","department_id");
 
 		this.link(master,detail);
-		this.setListOfValues(Lov.get(),"employees","last_name");
 	}
 
 	public async sort(block:string, column:string) : Promise<boolean>
