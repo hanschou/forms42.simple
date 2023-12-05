@@ -51,7 +51,7 @@ export class FormsModule extends FormsCoreModule
       {
 			// Find each form and only parse those parts
          let view:HTMLElement = document.querySelector('form');
-         await this.createform(MasterDetail,view);
+         await FormsModule.createform(MasterDetail,view);
       }
    }
 }
